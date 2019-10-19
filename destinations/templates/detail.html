@@ -1,17 +1,15 @@
 {% extends "base.html" %} 
 
-{% block title %}Detail{% endblock title %} 
+{% block title %}Details{% endblock title %} 
 
 {% block content %}
-    <p>{{destination.name}}</p>
-    <p>{{destination.description}}</p>
-    <p>{{destination.activities}}</p>
-    <p><img src="{{destination.pretty_picture.url}}"></p>
-    <p>{{destination.optimal_visiting_season}}</p>
-    <a href="{% url 'destination-update' destination.id %}">
-        <button>Update</button>
+    <h1 class="display-3">{{destination.name}}</h1>
+    <p class="text-justify">{{destination.description}}</p>
+    <p class="text-justify"> <strong>Activities: </strong>{{destination.activities}}</p>
+    <p><img src="{{destination.pretty_picture.url}}" class="img-fluid" alt="Responsive image"></p>
+    <h1 class="display-4">{{destination.optimal_visiting_season}}</h1>
+    <a href="{% url 'destination-update' destination.id %}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Update</a>
     </a>
-    <a href="{% url 'destination-delete' destination.id %}">
-        <button>Delete</button>
+    <a href="{% url 'destination-delete' destination.id %}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Delete</a>
     </a>
 {% endblock content %}
